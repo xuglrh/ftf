@@ -29,6 +29,8 @@
 		</dependency>		
   </dependencies>
 	<!-- 测试环境 -->
+	<profiles>
+		<profile>
 			<id>dev</id>
 			<build>
 				<plugins>
@@ -69,6 +71,6 @@
 				</plugins>
 			</build>
 		</profile>
-
+	</profiles>
 
 </project>
