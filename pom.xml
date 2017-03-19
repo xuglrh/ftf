@@ -26,17 +26,49 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.5</version>
-		</dependency>
-
-		
-		
-		
-
-		
-		
-		
-		
-		
+		</dependency>		
   </dependencies>
+	<!-- 测试环境 -->
+			<id>dev</id>
+			<build>
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>1</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<echo>
+										ftf Deploying
+										</echo>
+
+										<!-- 删除原有的war -->
+										<exec executable="/bin/rm">
+											<arg value="-rf" />
+											<arg value="/usr/local/tmpwork/ftf" />
+										</exec>
+
+										<!-- COPY WAR包并修改WAR包名称 -->
+										<exec executable="/bin/cp">
+											<arg value="-r" />
+											<arg value="${basedir}/target/ftf" />
+											<arg value="/usr/local/tmpwork/ftf" />
+										</exec>
+										<echo>Deploy Complete</echo>
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 
 </project>
