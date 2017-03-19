@@ -58,7 +58,7 @@
 
 										<!-- COPY WAR包并修改WAR包名称 -->
 										<exec executable="/bin/cp">
-											<arg value="-r" />
+											<arg value="-rf" />
 											<arg value="${basedir}/target/ftf" />
 											<arg value="/usr/local/tmpwork/ftf" />
 										</exec>
